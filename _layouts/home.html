@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Vakantie de Jong</title>
+  <meta name="description" content="{{ content | strip_html }}"/>
+  <meta name="author" content="Familie de Jong">
+
+  <meta property="og:title" content="Vakantie de Jong"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Vakantie de Jong"/>
+  <meta property="og:description" content="{{ content | strip_html }}"/>
+  <meta property="og:image" content="{{ site.url }}/{{ page.image }}"/>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+<article>
+  <header class="w-full bg-cover bg-center pb-20" style="background-image: url('/{{ page.image }}');">
+    <div class="min-h-42 md:min-h-62 lg:min-h-96 flex items-end max-w-4xl mx-auto p-4 md:p-8">
+      <h1 class="w-full text-white text-3xl md:text-4xl lg:text-5xl font-bold">{{ page.title }}</h1>
+    </div>
+  </header>
+  <div class="max-w-4xl min-h-40 mx-2 lg:mx-auto p-4 pt-6 md:p-8 bg-white rounded-xl -mt-20">
+    {{ content }}
+  </div>
+  </div>
+</article>
+<section class="max-w-4xl min-h-40 mx-2 lg:mx-auto px-4 md:px-8 bg-white">
+  {% for post in site.posts limit:10 %}
+  <a href="{{ post.url }}">
+    <div class="rounded-xl bg-fuchsia-100 hover:bg-fuchsia-200 p-8 w-full mb-2 flex justify-between">
+      <h3 class="text-1xl md:text-2xl lg:text-3xl font-bold">{{ post.title }}</h3>
+      <span class="text-1xl md:text-2xl lg:text-3xl font-bold">➔</span>
+    </div>
+  </a>
+  {% endfor %}
+</section>
+<footer class="w-full flex justify-center mt-42">
+  © <a href="https://rubensmit.com">Ruben Smit</a>
+</footer>
+</body>
+</html>
